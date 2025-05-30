@@ -8,7 +8,8 @@ let cards = [
 ];
 
 let maskedCards = cards.map(card => {
-    return card.replace(/(\d{4})\s?.+?\s?(\d{4})$/, '$1*****$2');
+    let parts = card.split(' ');
+    return `${parts[0]}*****${parts[3]}`;
 });
 
 console.log(maskedCards);

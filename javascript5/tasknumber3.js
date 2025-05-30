@@ -1,13 +1,12 @@
 function getInfo(prices) {
-    let startsWithPrice = 0;
-    let endsWithDollar = 0;
-
-    prices.forEach(price => {
-        if (price.startsWith('Цена')) startsWithPrice++;
-        if (price.endsWith('$')) endsWithDollar++;
-    });
-
-    return [startsWithPrice, endsWithDollar];
+    return prices.reduce(
+        (acc, price) => {
+            if (price.startsWith('Цена')) acc[0]++;
+            if (price.endsWith('$')) acc[1]++;
+            return acc;
+        },
+        [0, 0]
+    );
 }
 
 let prices = [
@@ -20,4 +19,4 @@ let prices = [
     '150$'
 ];
 
-console.log(getInfo(prices));  
+console.log(getInfo(prices));
