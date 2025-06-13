@@ -7,9 +7,5 @@ let cards = [
     '4000 0017 4456 4699'
 ];
 
-let maskedCards = cards.map(card => {
-    let parts = card.split(' ');
-    return `${parts[0]}*****${parts[3]}`;
-});
-
+let maskedCards = cards.map(card => card.slice(0, 4) + '*****' + card.slice(-4));
 console.log(maskedCards);

@@ -1,9 +1,5 @@
 function kingSayd(string) {
-    if (string.startsWith('Король сказал:')) {
-        console.log(string);
-    } else {
-        console.log('Король сказал: ' + string);
-    }
+    console.log(string.startsWith('Король сказал:') ? string : 'Король сказал: ' + string);
 }
 
 kingSayd("сегодня хорошая погода");  

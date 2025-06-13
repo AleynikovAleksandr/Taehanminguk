@@ -1,12 +1,11 @@
 function getInfo(prices) {
-    return prices.reduce(
-        (acc, price) => {
-            if (price.startsWith('Цена')) acc[0]++;
-            if (price.endsWith('$')) acc[1]++;
-            return acc;
-        },
-        [0, 0]
-    );
+    let countStarts = 0;
+    let countEnds = 0;
+    prices.forEach(price => {
+        if (price.startsWith('Цена')) countStarts++;
+        if (price.endsWith('$')) countEnds++;
+    });
+    return [countStarts, countEnds];
 }
 
 let prices = [
